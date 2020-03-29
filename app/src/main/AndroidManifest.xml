@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.king.architecture">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.NormalUseActivity"
+            android:exported="false"
+            android:label="基本用法" />
+        <activity
+            android:name=".activities.ObservabilityActivity"
+            android:exported="false"
+            android:label="动态绑定数据" />
+
+        <activity
+            android:name=".activities.AdapterActivity"
+            android:exported="false"
+            android:label="适配器" />
+
+        <activity
+            android:name=".activities.ViewModelActivity"
+            android:exported="false"
+            android:label="架构组件" />
+        <activity
+            android:name=".activities.TwoWaybindActivity"
+            android:exported="false"
+            android:label="双向绑定" />
+    </application>
+
+</manifest>

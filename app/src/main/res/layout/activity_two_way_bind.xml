@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="loginModel"
+            type="com.king.architecture.viewmodel.LoginModel" />
+
+<!--        <variable-->
+<!--            name="loginModelBind"-->
+<!--            type="com.king.databindingdemo.bean.LoginModelBind" />-->
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="5dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardElevation="@dimen/cardview_compat_inset_shadow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@string/account'
+                    app:layout_constraintBottom_toTopOf="@+id/account_password"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/account"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/account"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@={loginModel.account}"
+                    app:layout_constraintBottom_toBottomOf="@id/account_text"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintLeft_toRightOf="@id/account_text"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/account_text" />
+
+                <TextView
+                    android:id="@+id/account_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text='@string/password'
+                    app:layout_constraintBottom_toTopOf="@+id/observable"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/password"
+                    app:layout_constraintTop_toBottomOf="@id/account_text"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/password"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@={loginModel.password}"
+                    app:layout_constraintBottom_toBottomOf="@id/account_password"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintLeft_toRightOf="@id/account_password"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/account_password" />
+
+                <TextView
+                    android:id="@+id/observable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{@string/remember(loginModel.remember)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/account_password"
+                    app:layout_constraintRight_toLeftOf="@+id/rememberBox"
+                    app:layout_constraintTop_toBottomOf="@id/account_password"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <CheckBox
+                    android:id="@+id/rememberBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={loginModel.remember}"
+                    app:layout_constraintBottom_toBottomOf="@id/observable"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toRightOf="@id/observable"
+                    app:layout_constraintRight_toRightOf="@id/password"
+                    app:layout_constraintTop_toTopOf="@id/observable" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/bind_able"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@{@string/bindable(loginModelBind.loginModel)}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintHorizontal_chainStyle="packed"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintRight_toLeftOf="@+id/bind_able_remember"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/observable"-->
+        <!--            app:layout_constraintVertical_chainStyle="packed" />-->
+
+        <!--        <CheckBox-->
+        <!--            android:id="@+id/bind_able_remember"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:checked="@={loginModelBind.loginModel}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/bind_able"-->
+        <!--            app:layout_constraintHorizontal_chainStyle="packed"-->
+        <!--            app:layout_constraintLeft_toRightOf="@id/bind_able"-->
+        <!--            app:layout_constraintRight_toRightOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/bind_able" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
